@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="app" lang="en">
+    <head>
+        <title>Calculadora de hipoteca</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/mobile.css">
+    </head>
+
+    <body data-ng-controller="RaboMainController as mainCtrl">
+        <div id="logo"></div>
+        <h1>Hypotec Calculator</h1>
+        <!--include the navbar with components-->
+        <div data-ng-include="mainCtrl.navBar"></div>
+        <!--here we have the content to be included with components-->
+        <div id="mainDiv" data-ng-include="mainCtrl.tab.url">
+        </div>
+    </body>
+    <!--libs-->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-component-router.js"></script>
+
+    <script src="src/nav-bar/nav-bar-module.js"></script>
+    <script src="src/nav-bar/nav-bar-controller.js"></script>
+    <script src="src/calculator/calculator-module.js"></script>
+    <script src="src/calculator/calculator-controller.js"></script>
+    <script src="src/calculator/max-mortgage-service.js"></script>
+    <script src="src/rent/rent-module.js"></script>
+    <script src="src/rent/rent-controller.js"></script>
+    <script src="src/rent/interest-service.js"></script>
+    <script src="src/components/view-service.js"></script>
+    <script src="src/components/upadate-input-rent.js"></script>
+    <script src="src/rabo-mortgage-module.js"></script>
+    <script src="src/rabo-main-controller.js"></script>
+    <script src="src/app.js"></script>
+
+</html>

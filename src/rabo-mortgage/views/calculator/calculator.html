@@ -1,0 +1,31 @@
+<h3>Income Statement</h3>
+
+<div data-ng-controller="CalculatorController as calcCtrl">
+    <form name="CalcForm">
+
+        <input id="myIncome" class="goodLooking" ng-model="calcCtrl.bruto" ng-init="calcCtrl.bruto = 0" input-range-helper type="range" min=0 max=250000  />
+
+        <div class="space">
+            <label for="bruto">Bruto income</label> <br>
+            <input type="number" class="goodLooking" id="bruto" ng-model="calcCtrl.bruto"  min="0" required="true"  />
+        </div>
+
+        <input id="partnerIncome" class="goodLooking" ng-model="calcCtrl.brutoPartner" ng-init="calcCtrl.brutoPartner = 0"  input-range-helper type="range" min=0 max=250000  />
+
+        <div class="space">
+            <label for="partner">Partner Bruto</label> <br>
+            <input type="number" class="goodLooking" ng-model="calcCtrl.brutoPartner" id="partner"  required="true"  />
+        </div>
+
+        <!--<button type="button" class="button" min="0" id="btnCalc" ng-click="calcCtrl.requestMax()" >Calculate</button>-->
+
+        <input type="submit"  ng-model="calcCtrl.button"  class="button" ng-disabled="CalcForm.$invalid" ng-class="{error: !CalcForm.$valid}" id="btnCalc" ng-click="calcCtrl.requestMax()" value="Calculate">
+
+        <!--<input type="submit"  ng-model="calcCtrl.button"  class="button"  id="btnCalc" ng-click="calcCtrl.requestMax()" value="Calculate">-->
+
+    </form>
+
+    <div  class="margin-top"> The max loan you can get is : {{calcCtrl.maxLoan | currency:"€":2}}
+        <span class="underline" ng-if="calcCtrl.haveResponse" ng-click="calcCtrl.showConditions()"> [Here you have the conditions] </span>
+    </div>
+</div>
