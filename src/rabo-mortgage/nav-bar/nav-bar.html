@@ -1,5 +1,5 @@
-<ul id="navigator" data-ng-controller="NavBarController as navCtrl">
-    <li data-ng-repeat="nav in navCtrl.navigation" ng-click="navCtrl.updateCurrentNav(nav)" data-ng-class="{selected: nav.selected}">
-        <a href="#">{{nav.name}}</a>
+<ul id="navigator">
+    <li data-ng-repeat="nav in $ctrl.navigation" ng-click="$ctrl.updateCurrentNav(nav)" data-ng-class="{selected: nav.selected}">
+        <a ng-link="[nav.name]"> {{nav.name}}</a>
     </li>
 </ul>

@@ -1,1 +1,5 @@
-angular.module('nav-bar', []);
+(function () {
+    'use strict';
+
+    angular.module('navBarModule', []);
+})()

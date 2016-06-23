@@ -7,31 +7,42 @@
         <link rel="stylesheet" href="css/mobile.css">
     </head>
 
-    <body data-ng-controller="RaboMainController as mainCtrl">
+    <body>
         <div id="logo"></div>
         <h1>Hypotec Calculator</h1>
-        <!--include the navbar with components-->
-        <div data-ng-include="mainCtrl.navBar"></div>
-        <!--here we have the content to be included with components-->
-        <div id="mainDiv" data-ng-include="mainCtrl.tab.url">
+        <div class="container" data-ng-app="app">
+            <nav-bar></nav-bar>
+            <rabo-mortgage-component></rabo-mortgage-component>
         </div>
     </body>
+
     <!--libs-->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-component-router.js"></script>
 
-    <script src="src/nav-bar/nav-bar-module.js"></script>
-    <script src="src/nav-bar/nav-bar-controller.js"></script>
-    <script src="src/calculator/calculator-module.js"></script>
-    <script src="src/calculator/calculator-controller.js"></script>
-    <script src="src/calculator/max-mortgage-service.js"></script>
-    <script src="src/rent/rent-module.js"></script>
-    <script src="src/rent/rent-controller.js"></script>
-    <script src="src/rent/interest-service.js"></script>
-    <script src="src/components/view-service.js"></script>
-    <script src="src/components/upadate-input-rent.js"></script>
-    <script src="src/rabo-mortgage-module.js"></script>
-    <script src="src/rabo-main-controller.js"></script>
+    <script src="src/rabo-mortgage/components/components-module.js"></script>
+    <script src="src/rabo-mortgage/components/view-service.js"></script>
+    <script src="src/rabo-mortgage/components/upadate-input-rent.js"></script>
+    <script src="src/rabo-mortgage/components/input-range-directive.js"></script>
+
+    <script src="src/rabo-mortgage/nav-bar/nav-bar-module.js"></script>
+    <script src="src/rabo-mortgage/nav-bar/nav-bar-component.js"></script>
+
+    <script src="src/rabo-mortgage/views/calculator/calculator-module.js"></script>
+    <script src="src/rabo-mortgage/views/calculator/calculator-component.js"></script>
+    <script src="src/rabo-mortgage/views/calculator/max-mortgage-service.js"></script>
+
+    <script src="src/rabo-mortgage/views/interest/interest-module.js"></script>
+    <script src="src/rabo-mortgage/views/interest/interest-component.js"></script>
+    <script src="src/rabo-mortgage/views/interest/interest-service.js"></script>
+
+    <script src="src/rabo-mortgage/views/conditions/conditions-module.js"></script>
+    <script src="src/rabo-mortgage/views/conditions/conditions-component.js"></script>
+
+
+    <script src="src/rabo-mortgage/rabo-mortgage.module.js"></script>
+    <script src="src/rabo-mortgage/rabo-mortgage.component.js"></script>
     <script src="src/app.js"></script>
+    <script src="src/app.config.js"></script>
 
 </html>

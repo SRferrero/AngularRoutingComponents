@@ -1,14 +1,14 @@
 <h3>Current hipotec rent</h3>
 <p></p>
-<div data-ng-controller="RentController as rentCtrl">
-    <div id="interest">{{rentCtrl.interest}}</div>
+<div>
+    <div id="interest">{{$ctrl.interest}}</div>
     <div class="space">
         <label for="monthly">Combine income</label> <br>
-        <input type="number" min=0 class="goodLooking" id="monthly"  data-ng-model="rentCtrl.combineIncome"/>
+        <input type="number" min=0 class="goodLooking" id="monthly"  data-ng-model="$ctrl.combineIncome"/>
     </div>
-<!--{{rentCtrl.combineIncome}}-->
-    <button type="button" class="button" id="btnRent" ng-click="rentCtrl.calculateCost()">Calculate cost per month</button>
+<!--{{$ctrl.combineIncome}}-->
+    <button type="button" class="button" id="btnRent" ng-click="$ctrl.calculateCost()">Calculate cost per month</button>
 
-    <div id="brutoMonth" class="margin-top"> {{rentCtrl.month | currency:"€":2}}</div>
+    <div id="brutoMonth" class="margin-top"> {{$ctrl.month | currency:"€":2}}</div>
 
 </div>
