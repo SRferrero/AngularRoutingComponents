@@ -14,7 +14,6 @@
 
     function RaboMortgageController() {
         var vm = this;
-       console.log('fdghcxjzk');
     }
     
 })();
