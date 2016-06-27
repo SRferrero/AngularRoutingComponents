@@ -14,16 +14,12 @@
         vm.combineIncome = UpdateInput.getSum().sum || '';
 
         InterestService.requestInterest().then(function (currentRate) {
+            //debugger;
             rate = currentRate;
             vm.interest = rate + '% this is the current ratio d00d';
         }, function (errorInteresr) {
             console.log('error' + errorInteresr);
         });
-        
-        // this will be removed
-        vm.setRate = function(newRate) {
-            rate = newRate;
-        };
 
         vm.calculateCost = function () {
             vm.month =  rate * vm.combineIncome / 100 / 12;
