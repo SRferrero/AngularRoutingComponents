@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('calculator')
+    angular.module('components')
         .factory('MaxToLoan',['$http', 'maxMortgageUrl', function ($http, maxMortgageUrl) {
             return{
                 getMaxToLoan:function (val1, val2) {

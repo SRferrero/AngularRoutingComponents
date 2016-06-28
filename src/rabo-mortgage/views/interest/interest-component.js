@@ -4,10 +4,10 @@
     angular.module('interest')
         .component('interestComponent', {
             templateUrl: 'src/rabo-mortgage/views/interest/interest.html',
-            controller: ['InterestService','UpdateInput', InterestController]
+            controller: ['InterestService','UpdateInput', 'MaxToLoan', InterestController]
         });
 
-    function InterestController(InterestService, UpdateInput) {
+    function InterestController(InterestService, UpdateInput, MaxToLoan) {
         var vm = this;
         var rate;//for the calculations something private
 
@@ -22,7 +22,10 @@
         });
 
         vm.calculateCost = function () {
-            vm.month =  rate * vm.combineIncome / 100 / 12;
+            MaxToLoan.getMaxToLoan(vm.combineIncome).then(function (maxLoanValue) {
+                vm.month =  maxLoanValue * vm.combineIncome / 100 / 12;
+            });
+
         }
     }
 })();

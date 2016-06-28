@@ -24,6 +24,13 @@ describe('Interest component controller test', function() {
                     getSum: function () {
                         return {sum: 30000}
                     }
+                },
+                MaxToLoan:{
+                    getMaxToLoan:function () {
+                        var deferredLoan = $q.defer();
+                        deferredLoan.resolve(505050);
+                        return deferredLoan.promise;
+                    }
                 }
             });
 
@@ -34,16 +41,17 @@ describe('Interest component controller test', function() {
         //expect(scope.ctrl.randomNumber).not.toBeDefined();
         //expect(a).toBeNull();
         //expect(foo).toEqual(bar);
-console.log(component);
         component.combineIncome = 0;
         component.calculateCost();
+        $scope.$digest();
         expect(component.month).toEqual(0);
     });
 
     it('giving some values', function() {
         //component.combineIncome = 30;
         component.calculateCost();
-        expect(component.month).toEqual(52.5);
+        $scope.$digest();
+        expect(component.month).toEqual(12626250);
     });
 
 

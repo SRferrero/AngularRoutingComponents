@@ -16,7 +16,7 @@
             vm.brutoPartner = vm.brutoPartner || 0;//in case you dont know your partner income.
             MaxToLoan.getMaxToLoan(vm.bruto, vm.brutoPartner).then(function (maxLoanValue) {
                 vm.maxLoan = maxLoanValue;
-                UpdateInput.updateSum(vm.maxLoan);
+                UpdateInput.updateSum(vm.bruto+vm.brutoPartner);
                 vm.haveResponse = true;
             });
 
