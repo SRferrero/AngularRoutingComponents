@@ -28,9 +28,7 @@ describe('Interest component controller test', function() {
                 },
                 MaxToLoan:{
                     getMaxToLoan:function () {
-                        // var  maxLoanDeferred = $q.defer();
                         maxLoanDeferred = $q.defer();
-                        // maxLoanDeferred.resolve(505050);
                         return maxLoanDeferred.promise;
                     }
                 }
@@ -39,20 +37,15 @@ describe('Interest component controller test', function() {
         //$scope.$digest();
     }));
 
-    it('expect the values to be empty at the begining but not the call in the service', function() {
-        //expect(scope.ctrl.randomNumber).not.toBeDefined();
-        //expect(a).toBeNull();
-        //expect(foo).toEqual(bar);
-
+    it('if we dont have combine income the result is 0 of course', function() {
         component.combineIncome = 0;
         component.calculateCost();
-        maxLoanDeferred.resolve(505050); //resolve after the promise is expecting then
+        maxLoanDeferred.resolve(3550); //resolve after the promise is expecting then
         $scope.$digest();
         expect(component.month).toEqual(0);
     });
 
     it('giving some values', function() {
-
         //interestDeferred.resolve(2.1);//so far is ok to resolve in the creation, no need to change
         component.calculateCost();
         maxLoanDeferred.resolve(505050);
@@ -62,3 +55,7 @@ describe('Interest component controller test', function() {
 
 
 });
+
+//expect(scope.ctrl.randomNumber).not.toBeDefined();
+//expect(a).toBeNull();
+//expect(foo).toEqual(bar);
