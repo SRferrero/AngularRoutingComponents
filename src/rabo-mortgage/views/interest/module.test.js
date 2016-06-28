@@ -1,5 +1,5 @@
 describe('Interest component controller test', function() {
-    var $scope, $componentController, component, $q;
+    var $scope, $componentController, component, $q, interestDeferred, maxLoanDeferred;
 
     beforeEach(module('interest'));
     beforeEach(module('components'));
@@ -15,9 +15,10 @@ describe('Interest component controller test', function() {
             {
                 InterestService: { // mocking the service in the controller of the component
                     requestInterest: function() {//that is the return function in the service so we have to mock it also
-                        var deferred = $q.defer();
-                        deferred.resolve(2.1);
-                        return deferred.promise;
+                        // var interestDeferred = $q.defer();
+                        interestDeferred = $q.defer();
+                        interestDeferred.resolve(2.1);
+                        return interestDeferred.promise;
                     }
                 },
                 UpdateInput:{
@@ -27,29 +28,34 @@ describe('Interest component controller test', function() {
                 },
                 MaxToLoan:{
                     getMaxToLoan:function () {
-                        var deferredLoan = $q.defer();
-                        deferredLoan.resolve(505050);
-                        return deferredLoan.promise;
+                        // var  maxLoanDeferred = $q.defer();
+                        maxLoanDeferred = $q.defer();
+                        // maxLoanDeferred.resolve(505050);
+                        return maxLoanDeferred.promise;
                     }
                 }
             });
 
-        $scope.$digest();
+        //$scope.$digest();
     }));
 
     it('expect the values to be empty at the begining but not the call in the service', function() {
         //expect(scope.ctrl.randomNumber).not.toBeDefined();
         //expect(a).toBeNull();
         //expect(foo).toEqual(bar);
+
         component.combineIncome = 0;
         component.calculateCost();
+        maxLoanDeferred.resolve(505050); //resolve after the promise is expecting then
         $scope.$digest();
         expect(component.month).toEqual(0);
     });
 
     it('giving some values', function() {
-        //component.combineIncome = 30;
+
+        //interestDeferred.resolve(2.1);//so far is ok to resolve in the creation, no need to change
         component.calculateCost();
+        maxLoanDeferred.resolve(505050);
         $scope.$digest();
         expect(component.month).toEqual(12626250);
     });
