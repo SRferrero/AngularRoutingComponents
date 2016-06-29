@@ -1,8 +1,8 @@
 describe('Interest component controller test', function() {
-    var $scope, $componentController, component, $q, interestDeferred, maxLoanDeferred;
+    var $scope, $componentController, component, $q, interestDeferred, maxLoanDeferred, sumComb;
 
     beforeEach(module('interest'));
-    beforeEach(module('components'));
+    //beforeEach(module('components'));
 
     beforeEach(inject(function($rootScope, _$componentController_, _$q_){
         $scope = $rootScope.$new();
@@ -18,12 +18,14 @@ describe('Interest component controller test', function() {
                         // var interestDeferred = $q.defer();
                         interestDeferred = $q.defer();
                         interestDeferred.resolve(2.1);
+                        // interestDeferred.reject('sghdjsa');
                         return interestDeferred.promise;
                     }
                 },
                 UpdateInput:{
                     getSum: function () {
-                        return {sum: 30000}
+                        sumComb = 30000;
+                        return {sum: sumComb}
                     }
                 },
                 MaxToLoan:{
